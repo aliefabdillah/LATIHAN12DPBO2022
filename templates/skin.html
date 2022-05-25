@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  
+  <!-- BS 5.1.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>To Do List</title>
+</head>
+
+<body>
+  <!-- Modal ADD DATA START -->
+  <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Data Pasien</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="form" action="crud.php" method="post">
+            <div class="mb-3">
+              <label class="form-label">NIK</label>
+              <input type="text" class="form-control" name="nik" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nama</label>
+              <input type="text" class="form-control" name="nama"  >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tempat Lahir</label>
+              <input type="text" class="form-control" name="tempat_lahir" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tanggal Lahir</label>
+              <input type="date" class="form-control" name="tgl_lahir">
+            </div>
+            <div class="mb-3">
+              <label class="">Gender</label><br>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" value="Laki-laki">
+                <label class="form-check-label" for="gender">Laki-Laki</label>
+              </div>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" value="Perempuan">
+                <label class="form-check-label" for="gender">Perempuan</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email address</label>
+              <input type="email" class="form-control" name="email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Telepon</label>
+              <input type="text" class="form-control" name="telepon">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input class="btn btn-danger" type="reset" name="reset" value="Reset">
+              <input class="btn btn-success" type="submit" name="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal ADD DATA END -->
+
+  <!-- Modal EDIT DATA START -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Data Pasien</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="form" action="crud.php" method="post">
+            <input type="hidden" class="form-control" name="id" id="id" >
+            <div class="mb-3">
+              <label class="form-label">NIK</label>
+              <input type="text" class="form-control" name="nik" id="nik" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nama</label>
+              <input type="text" class="form-control" name="nama" id="nama" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tempat Lahir</label>
+              <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tanggal Lahir</label>
+              <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
+            </div>
+            <div class="mb-3">
+              <label class="">Gender</label><br>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="Laki-laki">
+                <label class="form-check-label" for="gender">Laki-Laki</label>
+              </div>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="Perempuan">
+                <label class="form-check-label" for="gender">Perempuan</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email address</label>
+              <input type="email" class="form-control" name="email" id="email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Telepon</label>
+              <input type="text" class="form-control" name="telepon" id="telepon">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <input class="btn btn-success" type="submit" name="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal ADD DATA END -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">WIW</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <br />
+  <br />
+
+  <div style="margin-left: 5%">
+
+    <!-- Tabel 1 -->
+    <div style="display: inline-block; ">
+      <h3>TABEL PASIEN</h3>
+      <button type='button' class='btn btn-primary mb-3' data-bs-toggle="modal" data-bs-target="#insertModal">
+         + Tambah Baru
+      </button>
+      <br>
+      <!-- TABEL1 -->
+
+      <table align="left" border="1" class="table" style="text-align: center;">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">NO</th>
+            <th class="d-none" scope="col">Id</th>
+            <th scope="col">NIK</th>
+            <th scope="col">NAMA</th>
+            <th scope="col">TEMPAT</th>
+            <th scope="col">TANGGAL LAHIR</th>
+            <th scope="col">GENDER</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">TELEPON</th>
+            <th scope="col">ACTION</th>
+          </tr>
+        </thead>
+        <tr>
+
+          DATA_TABEL
+        </tr>
+
+      </table>
+
+      <br>
+
+
+    </div>
+
+
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+  <script>
+    // mengambil data pada tabel untuk di simpan pada form yang ada di edit Modal
+    $(document).ready( function() {
+      $('.editBtn').on('click', function(){             //fungsi ketika button edit di klik
+        $('#editModal').modal('show');                  //menampilkan modal untuk edit
+    
+        $tr = $(this).closest('tr');
+    
+        // mengambil data pada kolom
+        var data = $tr.children("td").map(function () {
+          return $(this).text();
+        }).get();     
+    
+        console.log(data);
+        
+        // menyimpan nilai dari table ke dalam input form
+        $('#id').val(data[1]);
+        $('#nik').val(data[2]);
+        $('#nama').val(data[3]);
+        $('#tempat_lahir').val(data[4]);
+        $('#tgl_lahir').val(data[5]);
+        var genderValue = data[6]; 
+        if (genderValue == 'Laki-laki') {
+          $('#male').prop("checked", true);
+        }else{
+          $('#female').prop("checked", true);
+        }
+        $('#email').val(data[7]);
+        $('#telepon').val(data[8]);
+      })
+    })
+  </script>
+</body>
+
+</html>
