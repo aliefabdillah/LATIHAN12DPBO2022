@@ -6,4 +6,7 @@ Repository File Latihan DPBO 12 (MVP PHP)
 ## Bahasa
 Bahasa yang digunakan pada tugas praktikum kali ini adalah bahasa pemrogaman Php, JS, HTML
 
-## Screenshot Hasil Program
+## Screenshot Hasil Program (Video)
+
+https://user-images.githubusercontent.com/91062027/170274269-9b12bc99-9d8c-43ec-b185-ddfbd4473d23.mp4
+
